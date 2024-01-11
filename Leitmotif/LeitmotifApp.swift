@@ -11,7 +11,8 @@ import SwiftUI
 struct LeitmotifApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            TopBar(isImageOverlayed: .constant(false))
         }
     }
 }

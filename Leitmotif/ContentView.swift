@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var fileName = ""
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            TabView {
+                PhotoUploadView()
+                    .tabItem {
+                        Label("Photo", systemImage: "photo")
+                    }
+                FileUploadView()
+                    .tabItem {
+                        Label("File", systemImage: "doc")
+                    }
+                TwitterUploadView()
+                    .tabItem {
+                        Label("Twitter", systemImage: "bird")
+                    }
+                Text("URL")
+                    .tabItem {
+                        Label("URL", systemImage: "link")
+                    }
+            }
+            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? 0.4 : 0)
+            .navigationTitle("Leitmotif")
         }
-        .padding()
     }
 }
 

@@ -7,18 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1ADB9E2B3F228400F71BE8 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */; };
+		3E2EDAFD2B4F166800467736 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2EDAFC2B4F166800467736 /* TopBar.swift */; };
+		3E2EDB052B4F1A1100467736 /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EDB042B4F1A1100467736 /* Urbanist.ttf */; };
+		3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */; };
+		3E4236712B43A6ED0098E3C3 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */; };
+		3E48E6642B4FBF4C002E9363 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48E6632B4FBF4C002E9363 /* Secrets.swift */; };
+		3E58E0152B3E4FCA00E08167 /* FileUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */; };
+		3E58E0172B3E4FE300E08167 /* PhotoUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */; };
+		3E58E0192B3E4FF500E08167 /* TwitterUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */; };
+		3E58E01B2B3E511000E08167 /* URLUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E01A2B3E511000E08167 /* URLUploadView.swift */; };
+		3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E860C0C2B3E87F70065DF70 /* LargeButton.swift */; };
+		3EA383622B4139AC00530FDE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA383612B4139AC00530FDE /* Alamofire */; };
 		3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */; };
 		3EBEA17D2AACDB54005A2995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA17C2AACDB54005A2995 /* ContentView.swift */; };
 		3EBEA17F2AACDB55005A2995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEA17E2AACDB55005A2995 /* Assets.xcassets */; };
 		3EBEA1822AACDB55005A2995 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEA1812AACDB55005A2995 /* Preview Assets.xcassets */; };
+		3EBEA18C2AACDFAA005A2995 /* UploadLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */; };
+		3EC03CEA2B4F200000244CC9 /* FontLoadingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC03CE92B4F200000244CC9 /* FontLoadingStoryboard.storyboard */; };
+		3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF74DED2B41CB1B008D7720 /* UploadError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
+		3E2EDAFC2B4F166800467736 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		3E2EDB012B4F17E800467736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3E2EDB042B4F1A1100467736 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
+		3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeTypes.swift; sourceTree = "<group>"; };
+		3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		3E48E6632B4FBF4C002E9363 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadView.swift; sourceTree = "<group>"; };
+		3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadView.swift; sourceTree = "<group>"; };
+		3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUploadView.swift; sourceTree = "<group>"; };
+		3E58E01A2B3E511000E08167 /* URLUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUploadView.swift; sourceTree = "<group>"; };
+		3E860C0C2B3E87F70065DF70 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		3EBEA1772AACDB54005A2995 /* Leitmotif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leitmotif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeitmotifApp.swift; sourceTree = "<group>"; };
 		3EBEA17C2AACDB54005A2995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EBEA17E2AACDB55005A2995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBEA1812AACDB55005A2995 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadLocations.swift; sourceTree = "<group>"; };
+		3EC03CE92B4F200000244CC9 /* FontLoadingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontLoadingStoryboard.storyboard; sourceTree = "<group>"; };
+		3EF74DED2B41CB1B008D7720 /* UploadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,16 +56,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA383622B4139AC00530FDE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2EDB062B4F1A1F00467736 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3E2EDB042B4F1A1100467736 /* Urbanist.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3E58E0132B3E4FBF00E08167 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */,
+				3E860C0C2B3E87F70065DF70 /* LargeButton.swift */,
+				3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */,
+				3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */,
+				3E58E01A2B3E511000E08167 /* URLUploadView.swift */,
+				3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */,
+				3E2EDAFC2B4F166800467736 /* TopBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E78E14F2B4367FF00D2DCAC /* Uploaders */ = {
+			isa = PBXGroup;
+			children = (
+				3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */,
+			);
+			path = Uploaders;
+			sourceTree = "<group>";
+		};
 		3EBEA16E2AACDB54005A2995 = {
 			isa = PBXGroup;
 			children = (
 				3EBEA1792AACDB54005A2995 /* Leitmotif */,
+				3EC03CE92B4F200000244CC9 /* FontLoadingStoryboard.storyboard */,
 				3EBEA1782AACDB54005A2995 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,10 +113,15 @@
 		3EBEA1792AACDB54005A2995 /* Leitmotif */ = {
 			isa = PBXGroup;
 			children = (
-				3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */,
-				3EBEA17C2AACDB54005A2995 /* ContentView.swift */,
+				3E2EDB062B4F1A1F00467736 /* Fonts */,
+				3E2EDB012B4F17E800467736 /* Info.plist */,
 				3EBEA17E2AACDB55005A2995 /* Assets.xcassets */,
+				3EBEA17C2AACDB54005A2995 /* ContentView.swift */,
+				3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */,
+				3EBEA1882AACDE3E005A2995 /* Models */,
 				3EBEA1802AACDB55005A2995 /* Preview Content */,
+				3E78E14F2B4367FF00D2DCAC /* Uploaders */,
+				3E58E0132B3E4FBF00E08167 /* Views */,
 			);
 			path = Leitmotif;
 			sourceTree = "<group>";
@@ -65,6 +132,17 @@
 				3EBEA1812AACDB55005A2995 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3EBEA1882AACDE3E005A2995 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */,
+				3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */,
+				3EF74DED2B41CB1B008D7720 /* UploadError.swift */,
+				3E48E6632B4FBF4C002E9363 /* Secrets.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +161,9 @@
 			dependencies = (
 			);
 			name = Leitmotif;
+			packageProductDependencies = (
+				3EA383612B4139AC00530FDE /* Alamofire */,
+			);
 			productName = Leitmotif;
 			productReference = 3EBEA1772AACDB54005A2995 /* Leitmotif.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 3EBEA16E2AACDB54005A2995;
+			packageReferences = (
+				3EA383602B4139AC00530FDE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3EBEA1782AACDB54005A2995 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBEA1822AACDB55005A2995 /* Preview Assets.xcassets in Resources */,
+				3EC03CEA2B4F200000244CC9 /* FontLoadingStoryboard.storyboard in Resources */,
 				3EBEA17F2AACDB55005A2995 /* Assets.xcassets in Resources */,
+				3E2EDB052B4F1A1100467736 /* Urbanist.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +223,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4236712B43A6ED0098E3C3 /* PhotoPicker.swift in Sources */,
 				3EBEA17D2AACDB54005A2995 /* ContentView.swift in Sources */,
+				3EBEA18C2AACDFAA005A2995 /* UploadLocations.swift in Sources */,
+				3E58E01B2B3E511000E08167 /* URLUploadView.swift in Sources */,
+				3E2EDAFD2B4F166800467736 /* TopBar.swift in Sources */,
+				3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */,
+				3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */,
 				3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */,
+				3E1ADB9E2B3F228400F71BE8 /* FileUploader.swift in Sources */,
+				3E48E6642B4FBF4C002E9363 /* Secrets.swift in Sources */,
+				3E58E0192B3E4FF500E08167 /* TwitterUploadView.swift in Sources */,
+				3E58E0172B3E4FE300E08167 /* PhotoUploadView.swift in Sources */,
+				3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */,
+				3E58E0152B3E4FCA00E08167 /* FileUploadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,15 +364,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Leitmotif/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Leitmotif/Preview\\ Content Leitmotif/Fonts/Urbanist.ttf";
 				DEVELOPMENT_TEAM = 839U72R654;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Leitmotif/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to upload files to servers on your local network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +382,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cominatyou.Leitmotif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -295,15 +397,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Leitmotif/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Leitmotif/Preview\\ Content Leitmotif/Fonts/Urbanist.ttf";
 				DEVELOPMENT_TEAM = 839U72R654;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Leitmotif/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to upload files to servers on your local network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +415,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cominatyou.Leitmotif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -339,6 +445,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3EA383602B4139AC00530FDE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EA383612B4139AC00530FDE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EA383602B4139AC00530FDE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3EBEA16F2AACDB54005A2995 /* Project object */;
 }
