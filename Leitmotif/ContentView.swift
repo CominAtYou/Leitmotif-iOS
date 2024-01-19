@@ -8,29 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var fileName = ""
+    @State var isImageOverlayed = false
     var body: some View {
-        NavigationStack {
-            TabView {
-                PhotoUploadView()
-                    .tabItem {
-                        Label("Photo", systemImage: "photo")
-                    }
-                FileUploadView()
-                    .tabItem {
-                        Label("File", systemImage: "doc")
-                    }
-                TwitterUploadView()
-                    .tabItem {
-                        Label("Twitter", systemImage: "bird")
-                    }
-                Text("URL")
-                    .tabItem {
-                        Label("URL", systemImage: "link")
-                    }
-            }
-            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? 0.4 : 0)
-            .navigationTitle("Leitmotif")
+        ZStack {
+            PhotoUploadView(isImageOverlayed: $isImageOverlayed)
+            TopBar(isImageOverlayed: $isImageOverlayed)
         }
     }
 }

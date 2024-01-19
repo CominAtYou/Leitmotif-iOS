@@ -53,7 +53,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.videoQuality = .typeHigh
-        picker.allowsEditing = true
+        picker.allowsEditing = false
         picker.videoExportPreset = AVAssetExportPresetPassthrough
         picker.mediaTypes = [UTType.image.identifier, UTType.movie.identifier]
         picker.delegate = context.coordinator
