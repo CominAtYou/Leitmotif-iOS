@@ -10,15 +10,18 @@ import PhotosUI
 
 struct PhotoPickerBottomForm: View {
     @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject var topBarStateController: TopBarStateController
     @State var fileName = ""
     @State private var selectedLocation = UploadLocation.oneshot
-    @Binding var backgroundImage: Image?
+    @Binding var backgroundImageData: PhotosPickerContentTransferrable?
     @Binding var isImageOverlayed: Bool
     @State private var selectedImage: PhotosPickerItem?
     @FocusState private var isNameInputFocused: Bool // Used to add padding to the view when the keyboard is visible
+    @State private var shouldPaddingBeApplied = false
     
     var body: some View {
         VStack(spacing: 12) {
+            // MARK: - File Name
             VStack {
                 LabeledContent {
                     TextField("", text: $fileName)
@@ -30,6 +33,11 @@ struct PhotoPickerBottomForm: View {
                         .textInputAutocapitalization(.never)
                         .focused($isNameInputFocused)
                         .submitLabel(.done)
+                        .onChange(of: isNameInputFocused) {
+                            withAnimation {
+                                shouldPaddingBeApplied = isNameInputFocused
+                            }
+                        }
                 } label: {
                     Text("File Name")
                         .font(Font.custom("UrbanistRoman-SemiBold", size: 17, relativeTo: .body))
@@ -40,6 +48,7 @@ struct PhotoPickerBottomForm: View {
                 Divider()
                     .padding(.leading, 24)
                 
+                // MARK: - Picker
                 LabeledContent {
                     Menu {
                         Picker(selection: $selectedLocation) {
@@ -61,38 +70,83 @@ struct PhotoPickerBottomForm: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 8)
             }
+            // MARK: - Form Body End
             .padding(.vertical, 18)
             .background(colorScheme == .dark ? Color(UIColor.secondarySystemBackground) : .white)
             .clipShape(RoundedRectangle(cornerRadius: 26))
             .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 5)
-            
+            // MARK: - Bottom Buttons
             HStack {
-                PhotosPicker(selection: $selectedImage, matching: .any(of: [.images, .videos]), photoLibrary: .shared()) {
-                    ActionlessLargeButton(text: backgroundImage != nil ? "Change Photo" : "Select Photo")
+                PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
+                    ActionlessLargeButton(text: backgroundImageData != nil ? "Change Photo" : "Select Photo")
                 }
                 .onChange(of: selectedImage) {
                     Task {
-                        selectedImage!.loadTransferable(type: BackgroundImage.self) { result in
-                            if let resultImage = try? result.get() {
+                        selectedImage!.loadTransferable(type: PhotosPickerContentTransferrable.self) { result in
+                            if var resultData = try? result.get() {
+                                let fileExt = selectedImage!.supportedContentTypes.first!.preferredFilenameExtension!
+                                
+                                if (fileName.isEmpty) {
+                                    let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
+                                    fileName = "\(nameComponent).\(fileExt)"
+                                }
+                                else if (fileName.contains(".")) {
+                                    let nameComponent = fileName.split(separator: ".").first!
+                                    fileName = "\(nameComponent).\(fileExt)"
+                                }
+                                else {
+                                    fileName += ".\(fileExt)"
+                                }
+                                
+                                resultData.mimeType = selectedImage!.supportedContentTypes.first!.preferredMIMEType
                                 withAnimation {
-                                    backgroundImage = resultImage.image
+                                    backgroundImageData = resultData
+                                    
                                 }
                                 isImageOverlayed = true
                             }
                         }
                     }
                 }
-                if backgroundImage != nil {
-                    LargeButton(labelText: "Upload") {}
+                // MARK: - Upload Button
+                if let backgroundImageData {
+                    LargeButton(labelText: "Upload") {
+                        Task {
+                            do {
+                                try await uploadData(fileName: fileName, file: backgroundImageData.imageData!, location: selectedLocation, mime: backgroundImageData.mimeType!, topBarStateController: topBarStateController)
+                                
+                                topBarStateController.state = .inactive
+                                withAnimation {
+                                    topBarStateController.statusText = "Upload Complete!"
+                                }
+                            }
+                            catch UploadError.fileExistsError {
+                                // TODO: Something
+                            }
+                            catch (UploadError.uploadFailure) {
+                                // TODO: Something
+                            }
+                            catch (UploadError.wanQueryFailure) {
+                                // TODO: something
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                let name = UserDefaults.standard.string(forKey: "lastSeenServerName")!
+                                withAnimation {
+                                    topBarStateController.statusText = "\(name) | Online"
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .padding(.horizontal, isImageOverlayed ? 6 : 0)
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, isNameInputFocused ? 12 : 0)
+        .padding(.bottom, shouldPaddingBeApplied ? 12 : 0)
     }
 }
 
 #Preview {
-    PhotoPickerBottomForm(backgroundImage: .constant(nil), isImageOverlayed: .constant(false))
+    PhotoPickerBottomForm(backgroundImageData: .constant(nil), isImageOverlayed: .constant(false))
 }

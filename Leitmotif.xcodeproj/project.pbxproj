@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E033B8D2B65B6FB0047F868 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E033B8C2B65B6FB0047F868 /* CircularProgressView.swift */; };
+		3E033B8F2B65BBAC0047F868 /* TopBarStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E033B8E2B65BBAC0047F868 /* TopBarStateController.swift */; };
 		3E1ADB9E2B3F228400F71BE8 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */; };
 		3E2EDAFD2B4F166800467736 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2EDAFC2B4F166800467736 /* TopBar.swift */; };
 		3E2EDB052B4F1A1100467736 /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EDB042B4F1A1100467736 /* Urbanist.ttf */; };
+		3E35F0342B6844370049FA55 /* DataUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35F0332B6844370049FA55 /* DataUploader.swift */; };
 		3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */; };
 		3E4236712B43A6ED0098E3C3 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */; };
 		3E48E6642B4FBF4C002E9363 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48E6632B4FBF4C002E9363 /* Secrets.swift */; };
@@ -19,7 +22,9 @@
 		3E58E0192B3E4FF500E08167 /* TwitterUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */; };
 		3E58E01B2B3E511000E08167 /* URLUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E01A2B3E511000E08167 /* URLUploadView.swift */; };
 		3E6718F02B52F5B600DDE298 /* ActionlessLargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6718EF2B52F5B600DDE298 /* ActionlessLargeButton.swift */; };
-		3E6718F22B52F7A300DDE298 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6718F12B52F7A300DDE298 /* BackgroundImage.swift */; };
+		3E6718F22B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6718F12B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift */; };
+		3E69FA052B671EAE00F061A9 /* PingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA042B671EAE00F061A9 /* PingResponse.swift */; };
+		3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */; };
 		3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E860C0C2B3E87F70065DF70 /* LargeButton.swift */; };
 		3EA383622B4139AC00530FDE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA383612B4139AC00530FDE /* Alamofire */; };
 		3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */; };
@@ -32,10 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E033B8C2B65B6FB0047F868 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		3E033B8E2B65BBAC0047F868 /* TopBarStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarStateController.swift; sourceTree = "<group>"; };
 		3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 		3E2EDAFC2B4F166800467736 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		3E2EDB012B4F17E800467736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3E2EDB042B4F1A1100467736 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
+		3E35F0332B6844370049FA55 /* DataUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUploader.swift; sourceTree = "<group>"; };
 		3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeTypes.swift; sourceTree = "<group>"; };
 		3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		3E48E6632B4FBF4C002E9363 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
@@ -45,7 +53,9 @@
 		3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUploadView.swift; sourceTree = "<group>"; };
 		3E58E01A2B3E511000E08167 /* URLUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUploadView.swift; sourceTree = "<group>"; };
 		3E6718EF2B52F5B600DDE298 /* ActionlessLargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionlessLargeButton.swift; sourceTree = "<group>"; };
-		3E6718F12B52F7A300DDE298 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		3E6718F12B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerContentTransferrable.swift; sourceTree = "<group>"; };
+		3E69FA042B671EAE00F061A9 /* PingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingResponse.swift; sourceTree = "<group>"; };
+		3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarNetworkManager.swift; sourceTree = "<group>"; };
 		3E860C0C2B3E87F70065DF70 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		3EBEA1772AACDB54005A2995 /* Leitmotif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leitmotif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeitmotifApp.swift; sourceTree = "<group>"; };
@@ -80,15 +90,16 @@
 		3E58E0132B3E4FBF00E08167 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E52E0202B5044EB006D5973 /* PhotoPickerBottomForm.swift */,
+				3E6718EF2B52F5B600DDE298 /* ActionlessLargeButton.swift */,
+				3E033B8C2B65B6FB0047F868 /* CircularProgressView.swift */,
 				3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */,
 				3E860C0C2B3E87F70065DF70 /* LargeButton.swift */,
 				3E4236702B43A6ED0098E3C3 /* PhotoPicker.swift */,
+				3E52E0202B5044EB006D5973 /* PhotoPickerBottomForm.swift */,
 				3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */,
 				3E2EDAFC2B4F166800467736 /* TopBar.swift */,
 				3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */,
 				3E58E01A2B3E511000E08167 /* URLUploadView.swift */,
-				3E6718EF2B52F5B600DDE298 /* ActionlessLargeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */,
+				3E35F0332B6844370049FA55 /* DataUploader.swift */,
 			);
 			path = Uploaders;
 			sourceTree = "<group>";
@@ -145,11 +157,14 @@
 		3EBEA1882AACDE3E005A2995 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E6718F12B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift */,
 				3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */,
-				3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */,
-				3EF74DED2B41CB1B008D7720 /* UploadError.swift */,
 				3E48E6632B4FBF4C002E9363 /* Secrets.swift */,
-				3E6718F12B52F7A300DDE298 /* BackgroundImage.swift */,
+				3E033B8E2B65BBAC0047F868 /* TopBarStateController.swift */,
+				3EF74DED2B41CB1B008D7720 /* UploadError.swift */,
+				3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */,
+				3E69FA042B671EAE00F061A9 /* PingResponse.swift */,
+				3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,20 +249,25 @@
 			files = (
 				3E4236712B43A6ED0098E3C3 /* PhotoPicker.swift in Sources */,
 				3EBEA17D2AACDB54005A2995 /* ContentView.swift in Sources */,
+				3E69FA052B671EAE00F061A9 /* PingResponse.swift in Sources */,
 				3E6718F02B52F5B600DDE298 /* ActionlessLargeButton.swift in Sources */,
 				3EBEA18C2AACDFAA005A2995 /* UploadLocations.swift in Sources */,
 				3E58E01B2B3E511000E08167 /* URLUploadView.swift in Sources */,
 				3E2EDAFD2B4F166800467736 /* TopBar.swift in Sources */,
+				3E033B8F2B65BBAC0047F868 /* TopBarStateController.swift in Sources */,
 				3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */,
 				3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */,
 				3E52E0212B5044EB006D5973 /* PhotoPickerBottomForm.swift in Sources */,
 				3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */,
+				3E033B8D2B65B6FB0047F868 /* CircularProgressView.swift in Sources */,
 				3E1ADB9E2B3F228400F71BE8 /* FileUploader.swift in Sources */,
 				3E48E6642B4FBF4C002E9363 /* Secrets.swift in Sources */,
 				3E58E0192B3E4FF500E08167 /* TwitterUploadView.swift in Sources */,
 				3E58E0172B3E4FE300E08167 /* PhotoUploadView.swift in Sources */,
-				3E6718F22B52F7A300DDE298 /* BackgroundImage.swift in Sources */,
+				3E35F0342B6844370049FA55 /* DataUploader.swift in Sources */,
+				3E6718F22B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift in Sources */,
 				3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */,
+				3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */,
 				3E58E0152B3E4FCA00E08167 /* FileUploadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

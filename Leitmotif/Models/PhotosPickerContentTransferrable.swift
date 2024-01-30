@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 import CoreTransferable
 
-struct BackgroundImage: Transferable {
-    let image: Image
-    let imageData: Data
+struct PhotosPickerContentTransferrable: Transferable {
+    let image: Image?
+    let imageData: Data?
+    let videoData: Data?
+    var mimeType: String?
     
     private enum TransferError: Error {
         case TransferFailed
@@ -21,7 +23,7 @@ struct BackgroundImage: Transferable {
         DataRepresentation(importedContentType: .image) { data in
             if let uiImage = UIImage(data: data) {
                 let image = Image(uiImage: uiImage)
-                return BackgroundImage(image: image, imageData: data)
+                return PhotosPickerContentTransferrable(image: image, imageData: data, videoData: nil, mimeType: nil)
             }
             else {
                 throw TransferError.TransferFailed

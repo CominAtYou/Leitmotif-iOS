@@ -4,18 +4,31 @@ let tabNames = ["File", "Photo", "Twitter", "URL"]
 
 struct TopBar: View {
     @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var topBarStateController: TopBarStateController
     @Binding var isImageOverlayed: Bool
     @State private var selectedButton = 0
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 12) {
                 HStack(spacing: 16) {
-                    Image(systemName: "checkmark.circle")
-                        .font(.system(size: 20, weight: .medium))
+                    if (topBarStateController.state == .inactive) {
+                        Image(systemName: "checkmark.circle")
+                            .font(.system(size: 20, weight: .medium))
+                    }
+                    else if (topBarStateController.state == .indeterminate) {
+                        ProgressView()
+                    }
+                    else if (topBarStateController.state == .unavailable) {
+                        Image(systemName: "exclamationmark.circle")
+                            .font(.system(size: 20, weight: .medium))
+                    }
+                    else {
+                        CircularProgressView(progress: $topBarStateController.uploadProgress)
+                    }
                     VStack(alignment: .leading) {
                         Text("Leitmotif")
                             .font(Font.custom("UrbanistRoman-SemiBold", size: 19, relativeTo: .title))
-                        Text("UbuntuNAS | Online")
+                        Text(topBarStateController.statusText)
                             .font(Font.custom("UrbanistRoman-Medium", size: 13, relativeTo: .caption))
                             .opacity(0.3)
                     }
@@ -70,6 +83,9 @@ struct TopBar: View {
 
 #Preview {
     TopBar(isImageOverlayed: .constant(false))
+        .environmentObject({ () -> TopBarStateController in
+            return TopBarStateController(state: .unavailable, statusText: "UbuntuNAS | Online", uploadProgress: 0.0)
+        }())
 }
 
 let lineSize: [CGFloat] = [36, 54, 59, 40]

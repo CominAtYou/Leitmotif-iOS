@@ -1,42 +1,50 @@
+//
+//  DataUploader.swift
+//  Leitmotif
+//
+//  Created by William Martin on 1/29/24.
+//
+
 import Foundation
 import Alamofire
-private let natWanIP = "136.35.34.249"
+import SwiftUI
 
-func uploadFile(fileName: String, file: URL, location: UploadLocation, progressCallback: @escaping (String, Double, Bool) -> Void) async throws {
+func uploadData(fileName: String, file: Data, location: UploadLocation, mime: String, topBarStateController: TopBarStateController) async throws {
+    DispatchQueue.main.async {
+        topBarStateController.state = .indeterminate
+        topBarStateController.statusText = "Determining WAN IP..."
+    }
+    
     let getIpUrl = URL(string: "https://api.ipify.org")!
     let ipRequestResult = try? await URLSession.shared.data(from: getIpUrl)
     
-    progressCallback("Determining WAN IP...", 0.0, false)
     guard let (data, _) = ipRequestResult else { throw UploadError.wanQueryFailure }
     let ip = String(data: data, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
-    let isAvailableLocally = ip == natWanIP
+    let isAvailableLocally = ip == "136.35.34.249"
     
     NSLog("Got IP: \(ip)")
     NSLog("Is available locally: \(isAvailableLocally ? "YES" : "NO")")
     
-    progressCallback("Trying to access file...", 0.0, false)
-    let canAccess = file.startAccessingSecurityScopedResource()
-    guard canAccess else { throw UploadError.fileAccessError }
-    
-    progressCallback("Reading file...", 0.0, false)
-    let fileData = try? Data(contentsOf: file)
-    guard let fileData else {
-        file.stopAccessingSecurityScopedResource()
-        throw UploadError.fileReadError
+    DispatchQueue.main.async {
+        topBarStateController.state = .uploading
+        topBarStateController.statusText = "Uploading..."
+        topBarStateController.uploadProgress = 0.0
     }
-    file.stopAccessingSecurityScopedResource()
-    
-    progressCallback("Uploading...", 0.0, true)
-    
+    NSLog("Kicking off upload to \(isAvailableLocally ? "http://192.168.2.6:8020" : "https://api.cominatyou.com")/leitmotif/upload with a payload size of \(file.count / 1024) KB")
     let request = AF.upload(multipartFormData: { data in
-        data.append(fileData, withName: "file", fileName: file.lastPathComponent, mimeType: mimeTypes[file.pathExtension.lowercased()]!)
+        data.append(file, withName: "file", fileName: fileName, mimeType: mime)
         data.append(fileName.data(using: .utf8)!, withName: "filename")
         data.append(locationIds[location]!.data(using: .utf8)!, withName: "location")
     }, to: "\(isAvailableLocally ? "http://192.168.2.6:8020" : "https://api.cominatyou.com")/leitmotif/upload", method: .post, headers: ["Authorization": UPLOAD_TOKEN])
     
     Task {
         for await progress in request.uploadProgress() {
-            progressCallback("Uploading...", progress.fractionCompleted, true)
+            DispatchQueue.main.async {
+                topBarStateController.statusText = "Uploading (\(Int(round(progress.fractionCompleted * 100)))%)"
+                withAnimation {
+                    topBarStateController.uploadProgress = progress.fractionCompleted
+                }
+            }
         }
     }
     
