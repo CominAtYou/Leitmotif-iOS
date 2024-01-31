@@ -80,63 +80,10 @@ struct PhotoPickerBottomForm: View {
                 PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
                     ActionlessLargeButton(text: backgroundImageData != nil ? "Change Photo" : "Select Photo")
                 }
-                .onChange(of: selectedImage) {
-                    Task {
-                        selectedImage!.loadTransferable(type: PhotosPickerContentTransferrable.self) { result in
-                            if var resultData = try? result.get() {
-                                let fileExt = selectedImage!.supportedContentTypes.first!.preferredFilenameExtension!
-                                
-                                if (fileName.isEmpty) {
-                                    let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
-                                    fileName = "\(nameComponent).\(fileExt)"
-                                }
-                                else if (fileName.contains(".")) {
-                                    let nameComponent = fileName.split(separator: ".").first!
-                                    fileName = "\(nameComponent).\(fileExt)"
-                                }
-                                else {
-                                    fileName += ".\(fileExt)"
-                                }
-                                
-                                resultData.mimeType = selectedImage!.supportedContentTypes.first!.preferredMIMEType
-                                withAnimation {
-                                    backgroundImageData = resultData
-                                    
-                                }
-                                isImageOverlayed = true
-                            }
-                        }
-                    }
-                }
-                // MARK: - Upload Button
+                .onChange(of: selectedImage, handleSelectionChange)
                 if let backgroundImageData {
                     LargeButton(labelText: "Upload") {
-                        Task {
-                            do {
-                                try await uploadData(fileName: fileName, file: backgroundImageData.imageData!, location: selectedLocation, mime: backgroundImageData.mimeType!, topBarStateController: topBarStateController)
-                                
-                                topBarStateController.state = .inactive
-                                withAnimation {
-                                    topBarStateController.statusText = "Upload Complete!"
-                                }
-                            }
-                            catch UploadError.fileExistsError {
-                                // TODO: Something
-                            }
-                            catch (UploadError.uploadFailure) {
-                                // TODO: Something
-                            }
-                            catch (UploadError.wanQueryFailure) {
-                                // TODO: something
-                            }
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                let name = UserDefaults.standard.string(forKey: "lastSeenServerName")!
-                                withAnimation {
-                                    topBarStateController.statusText = "\(name) | Online"
-                                }
-                            }
-                        }
+                        Task { await startUpload(backgroundImageData) }
                     }
                 }
             }
@@ -144,6 +91,63 @@ struct PhotoPickerBottomForm: View {
         }
         .padding(.horizontal, 24)
         .padding(.bottom, shouldPaddingBeApplied ? 12 : 0)
+    }
+    
+    func handleSelectionChange() {
+        selectedImage!.loadTransferable(type: PhotosPickerContentTransferrable.self) { result in
+            if var resultData = try? result.get() {
+                let fileExt = selectedImage!.supportedContentTypes.first!.preferredFilenameExtension!
+                
+                if (fileName.isEmpty) {
+                    let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
+                    fileName = "\(nameComponent).\(fileExt)"
+                }
+                else if (fileName.contains(".")) {
+                    let nameComponent = fileName.split(separator: ".").first!
+                    fileName = "\(nameComponent).\(fileExt)"
+                }
+                else {
+                    fileName += ".\(fileExt)"
+                }
+                
+                resultData.mimeType = selectedImage!.supportedContentTypes.first!.preferredMIMEType
+                withAnimation {
+                    backgroundImageData = resultData
+                    
+                }
+                isImageOverlayed = true
+            }
+        }
+    }
+    
+    func startUpload(_ backgroundImageData: PhotosPickerContentTransferrable) async {
+        do {
+            try await uploadData(fileName: fileName, file: backgroundImageData.imageData!, location: selectedLocation, mime: backgroundImageData.mimeType!, topBarStateController: topBarStateController)
+            
+            topBarStateController.state = .inactive
+            withAnimation {
+                topBarStateController.statusText = "Upload Complete!"
+            }
+        }
+        catch UploadError.fileExistsError {
+            // TODO: Something
+        }
+        catch (UploadError.uploadFailure) {
+            // TODO: Something
+        }
+        catch (UploadError.wanQueryFailure) {
+            // TODO: something
+        }
+        catch {
+            // TODO: something
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let name = UserDefaults.standard.string(forKey: "lastSeenServerName")!
+            withAnimation {
+                topBarStateController.statusText = "\(name) | Online"
+            }
+        }
     }
 }
 
