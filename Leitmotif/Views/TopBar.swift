@@ -83,9 +83,7 @@ struct TopBar: View {
 
 #Preview {
     TopBar(isImageOverlayed: .constant(false))
-        .environmentObject({ () -> TopBarStateController in
-            return TopBarStateController(state: .unavailable, statusText: "UbuntuNAS | Online", uploadProgress: 0.0)
-        }())
+        .environmentObject(TopBarStateController(state: .unavailable, statusText: "UbuntuNAS | Online", uploadProgress: 0.0))
 }
 
 let lineSize: [CGFloat] = [36, 54, 59, 40]
