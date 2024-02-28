@@ -30,12 +30,12 @@ func uploadData(fileName: String, file: Data, location: UploadLocation, mime: St
         topBarStateController.statusText = "Uploading..."
         topBarStateController.uploadProgress = 0.0
     }
-    NSLog("Kicking off upload to \(isAvailableLocally ? "http://192.168.2.6:8020" : "https://api.cominatyou.com")/leitmotif/upload with a payload size of \(file.count / 1024) KB")
+    NSLog("Kicking off upload to \(isAvailableLocally ? "http://192.168.2.6:8020" : "https://\(ENDPOINT_DOMAIN)")/leitmotif/upload with a payload size of \(file.count / 1024) KB")
     let request = AF.upload(multipartFormData: { data in
         data.append(file, withName: "file", fileName: fileName, mimeType: mime)
         data.append(fileName.data(using: .utf8)!, withName: "filename")
         data.append(locationIds[location]!.data(using: .utf8)!, withName: "location")
-    }, to: "\(isAvailableLocally ? "http://192.168.2.6:8020" : "https://api.cominatyou.com")/leitmotif/upload", method: .post, headers: ["Authorization": UPLOAD_TOKEN])
+    }, to: "\(isAvailableLocally ? "http://192.168.2.6:8020" : "https://\(ENDPOINT_DOMAIN)")/leitmotif/upload", method: .post, headers: ["Authorization": UPLOAD_TOKEN])
     
     Task {
         for await progress in request.uploadProgress() {

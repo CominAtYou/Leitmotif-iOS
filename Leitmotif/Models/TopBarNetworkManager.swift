@@ -20,7 +20,7 @@ func queryNetwork(topBarStateController: TopBarStateController, newState: Networ
         return
     }
     
-    let pingRequest = AF.request("https://api.cominatyou.com/leitmotif/ping")
+    let pingRequest = AF.request("https://\(ENDPOINT_DOMAIN)/leitmotif/ping")
     let response = await pingRequest.serializingString().response
     
     if response.error != nil {

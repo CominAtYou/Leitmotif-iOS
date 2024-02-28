@@ -32,7 +32,7 @@ func uploadFile(fileName: String, file: URL, location: UploadLocation, progressC
         data.append(fileData, withName: "file", fileName: file.lastPathComponent, mimeType: mimeTypes[file.pathExtension.lowercased()]!)
         data.append(fileName.data(using: .utf8)!, withName: "filename")
         data.append(locationIds[location]!.data(using: .utf8)!, withName: "location")
-    }, to: "\(isAvailableLocally ? "http://192.168.2.6:8020" : "https://api.cominatyou.com")/leitmotif/upload", method: .post, headers: ["Authorization": UPLOAD_TOKEN])
+    }, to: "\(isAvailableLocally ? "http://192.168.2.6:8020" : "https://\(ENDPOINT_DOMAIN)")/leitmotif/upload", method: .post, headers: ["Authorization": UPLOAD_TOKEN])
     
     Task {
         for await progress in request.uploadProgress() {
