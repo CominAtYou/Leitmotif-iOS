@@ -1,10 +1,3 @@
-//
-//  BackgroundImage.swift
-//  Leitmotif
-//
-//  Created by William Martin on 1/13/24.
-//
-
 import Foundation
 import SwiftUI
 import CoreTransferable

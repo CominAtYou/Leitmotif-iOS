@@ -4,7 +4,8 @@ import PhotosUI
 
 struct PhotoUploadView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @Binding var isImageOverlayed: Bool
+    @StateObject private var photoUploadFormData = PhotoUploadFormData(fileName: "", selectedLocation: .splatoon)
+    
     @State private var backgroundImageData: PhotosPickerContentTransferrable?
     @State private var isPhotoPickerVisible = false
     @State private var selectedItem: URL?
@@ -14,7 +15,8 @@ struct PhotoUploadView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                PhotoPickerBottomForm(backgroundImageData: $backgroundImageData, isImageOverlayed: $isImageOverlayed)
+                PhotoUploadViewBottomForm(backgroundImageData: $backgroundImageData)
+                    .environmentObject(photoUploadFormData)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(createBackground(geometry), alignment: .center)
@@ -36,7 +38,16 @@ struct PhotoUploadView: View {
 }
                 
 #Preview {
-    PhotoUploadView(isImageOverlayed: .constant(false))
+    PhotoUploadView()
+        .environmentObject(UploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(TopBarStateController(state: .inactive, statusText: "", uploadProgress: 0, isImageOverlayed: false, selectedButton: 1))
 }
 
-
+class PhotoUploadFormData: UploadFormData {
+    @Published var selectedImage: PhotosPickerItem?
+    
+    override init(fileName: String, selectedLocation: UploadLocation, selectedImage: PhotosPickerItem? = nil) {
+        self.selectedImage = selectedImage
+        super.init(fileName: fileName, selectedLocation: selectedLocation, selectedImage: nil)
+    }
+}

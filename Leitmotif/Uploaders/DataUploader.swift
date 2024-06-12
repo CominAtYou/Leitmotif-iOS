@@ -1,10 +1,3 @@
-//
-//  DataUploader.swift
-//  Leitmotif
-//
-//  Created by William Martin on 1/29/24.
-//
-
 import Foundation
 import Alamofire
 import SwiftUI
@@ -20,7 +13,7 @@ func uploadData(fileName: String, file: Data, location: UploadLocation, mime: St
     
     guard let (data, _) = ipRequestResult else { throw UploadError.wanQueryFailure }
     let ip = String(data: data, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
-    let isAvailableLocally = ip == "136.35.34.249"
+    let isAvailableLocally = ip == "136.35.78.176"
     
     NSLog("Got IP: \(ip)")
     NSLog("Is available locally: \(isAvailableLocally ? "YES" : "NO")")
@@ -30,7 +23,11 @@ func uploadData(fileName: String, file: Data, location: UploadLocation, mime: St
         topBarStateController.statusText = "Uploading..."
         topBarStateController.uploadProgress = 0.0
     }
+    
+    let logData = ["filename": fileName, "location": (taggedLocations.first(where: { $0.tag == location })!).name]
+    
     NSLog("Kicking off upload to \(isAvailableLocally ? "http://192.168.2.6:8020" : "https://\(ENDPOINT_DOMAIN)")/leitmotif/upload with a payload size of \(file.count / 1024) KB")
+    NSLog("Details: \(String(data: try JSONSerialization.data(withJSONObject: logData), encoding: .utf8)!)")
     let request = AF.upload(multipartFormData: { data in
         data.append(file, withName: "file", fileName: fileName, mimeType: mime)
         data.append(fileName.data(using: .utf8)!, withName: "filename")

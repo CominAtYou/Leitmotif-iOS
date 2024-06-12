@@ -1,6 +1,5 @@
 import Foundation
 import Alamofire
-private let natWanIP = "136.35.34.249"
 
 func uploadFile(fileName: String, file: URL, location: UploadLocation, progressCallback: @escaping (String, Double, Bool) -> Void) async throws {
     let getIpUrl = URL(string: "https://api.ipify.org")!
@@ -9,7 +8,7 @@ func uploadFile(fileName: String, file: URL, location: UploadLocation, progressC
     progressCallback("Determining WAN IP...", 0.0, false)
     guard let (data, _) = ipRequestResult else { throw UploadError.wanQueryFailure }
     let ip = String(data: data, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
-    let isAvailableLocally = ip == natWanIP
+    let isAvailableLocally = ip == "136.35.78.176"
     
     NSLog("Got IP: \(ip)")
     NSLog("Is available locally: \(isAvailableLocally ? "YES" : "NO")")

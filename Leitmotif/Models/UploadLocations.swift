@@ -1,10 +1,3 @@
-//
-//  UploadLocation.swift
-//  Leitmotif
-//
-//  Created by William Martin on 9/9/23.
-//
-
 import Foundation
 
 enum UploadLocation {

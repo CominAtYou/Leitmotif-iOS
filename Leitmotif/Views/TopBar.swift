@@ -6,7 +6,6 @@ struct TopBar: View {
     @Environment(\.colorScheme) private var colorScheme
     @EnvironmentObject private var topBarStateController: TopBarStateController
     @Binding var isImageOverlayed: Bool
-    @State private var selectedButton = 0
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 12) {
@@ -49,7 +48,7 @@ struct TopBar: View {
                     HStack(spacing: 32) {
                         ForEach(0..<tabNames.count, id: \.self) { i in
                             Button(action: {
-                                selectedButton = i
+                                topBarStateController.selectedButton = i
                             }) {
                                 Text(tabNames[i])
                                     .foregroundStyle(Color(UIColor.label))
@@ -59,10 +58,10 @@ struct TopBar: View {
                     }
                     
                     Rectangle()
-                        .frame(width: lineSize[selectedButton], height: 2)
-                        .offset(x: linePos[selectedButton]) // Twitter: 130,
+                        .frame(width: lineSize[topBarStateController.selectedButton], height: 2)
+                        .offset(x: linePos[topBarStateController.selectedButton]) // Twitter: 130,
                         .padding(.top, 2)
-                        .animation(.easeInOut(duration: 0.3), value: selectedButton)
+                        .animation(.easeInOut(duration: 0.3), value: topBarStateController.selectedButton)
 
                 }
                 .padding(.horizontal, 36)
@@ -83,7 +82,7 @@ struct TopBar: View {
 
 #Preview {
     TopBar(isImageOverlayed: .constant(false))
-        .environmentObject(TopBarStateController(state: .unavailable, statusText: "UbuntuNAS | Online", uploadProgress: 0.0))
+        .environmentObject(TopBarStateController(state: .unavailable, statusText: "UbuntuNAS | Online", uploadProgress: 0.0, isImageOverlayed: false, selectedButton: 0))
 }
 
 let lineSize: [CGFloat] = [36, 54, 59, 40]

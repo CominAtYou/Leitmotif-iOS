@@ -1,10 +1,3 @@
-//
-//  URLResourceView.swift
-//  Leitmotif
-//
-//  Created by William Martin on 12/28/23.
-//
-
 import SwiftUI
 
 struct URLUploadView: View {
