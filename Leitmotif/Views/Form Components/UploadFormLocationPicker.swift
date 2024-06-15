@@ -6,16 +6,21 @@ struct UploadFormLocationPicker: View {
     var body: some View {
         LabeledContent {
             Menu {
-                Picker(selection: $uploadFormData.selectedLocation) {
+                Picker(selection: $uploadFormData.location) {
                     // TaggedLocations is displayed in reverse order by default for some reason
                     ForEach(taggedLocations.reversed()) { location in
                         Text(location.name).tag(location.tag)
                     }
                 } label: {}
             } label: {
-                Text(taggedLocations.first(where: { $0.tag == uploadFormData.selectedLocation })!.name)
-                    .font(Font.custom("UrbanistRoman-Medium", size: 17, relativeTo: .body))
-                    .foregroundStyle(Color(UIColor.label).opacity(0.4))
+                HStack(alignment: .center, spacing: 6) {
+                    Text(taggedLocations.first(where: { $0.tag == uploadFormData.location })!.name)
+                        .font(Font.custom("UrbanistRoman-Medium", size: 17, relativeTo: .body))
+                        .foregroundStyle(Color(UIColor.label).opacity(0.4))
+                    Image(systemName: "chevron.up.chevron.down")
+                        .font(Font.system(size: 12, weight: .medium))
+                        .foregroundStyle(Color(UIColor.label).opacity(0.4))
+                }
             }
         } label: {
             Text("Location")
@@ -29,5 +34,5 @@ struct UploadFormLocationPicker: View {
 
 #Preview {
     UploadFormLocationPicker()
-        .environmentObject(UploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(UploadFormData(filename: "", location: .splatoon))
 }

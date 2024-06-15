@@ -2,11 +2,11 @@ import Foundation
 import _PhotosUI_SwiftUI
 
 class UploadFormData: ObservableObject {
-    @Published var fileName: String
-    @Published var selectedLocation: UploadLocation
+    @Published var filename: String
+    @Published var location: UploadLocation
     
-    init(fileName: String, selectedLocation: UploadLocation, selectedImage: PhotosPickerItem? = nil) {
-        self.fileName = fileName
-        self.selectedLocation = selectedLocation
+    init(filename: String, location: UploadLocation) {
+        self.filename = filename
+        self.location = location
     }
 }

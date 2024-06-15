@@ -16,19 +16,23 @@ class ShareViewController: UIViewController {
         if (itemProvider.hasItemConformingToTypeIdentifier(UTType.url.identifier)) {
             itemProvider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { url, error in
                 if let error {
+                    NSLog(error.localizedDescription)
                     self.finish()
                 }
                 
-                if let decodedUrl = url as? URL {
+                if url is URL {
                     // show view
                 }
             }
         }
         else if (itemProvider.hasItemConformingToTypeIdentifier(UTType.movie.identifier)) {
             itemProvider.loadItem(forTypeIdentifier: UTType.movie.identifier, options: nil) { video, error in
-                if let error { self.finish() }
+                if let error {
+                    NSLog(error.localizedDescription)
+                    self.finish()
+                }
                 
-                itemProvider.loadFileRepresentation(for: UTType.movie) { url, b, error in
+                let _ = itemProvider.loadFileRepresentation(for: UTType.movie) { url, b, error in
                     
                 }
                 

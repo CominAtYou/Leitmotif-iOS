@@ -16,11 +16,10 @@ struct UploadForm: View {
             .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 5)
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, shouldPaddingBeApplied ? 12 : 0)
     }
 }
 
 #Preview {
     UploadForm(shouldPaddingBeApplied: .constant(false))
-        .environmentObject(UploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(UploadFormData(filename: "", location: .splatoon))
 }

@@ -50,7 +50,7 @@ extension ContentView {
         
         DispatchQueue.main.async {
             topBarStateController.state = .inactive
-            topBarStateController.statusText = "\(pong.name) | Online"
+            topBarStateController.statusText = "\(pong.name) – Online"
         }
         
         UserDefaults.standard.setValue(pong.name, forKey: "lastSeenServerName")

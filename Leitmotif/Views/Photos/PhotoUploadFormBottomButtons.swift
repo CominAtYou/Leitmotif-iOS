@@ -29,5 +29,5 @@ struct PhotoUploadFormBottomButtons: View {
 
 #Preview {
     PhotoUploadFormBottomButtons(backgroundImageData: .constant(nil), isImageOverlayed: .constant(false), shouldPaddingBeApplied: .constant(false))
-        .environmentObject(PhotoUploadFormData(fileName: "", selectedLocation: .splatoon, selectedImage: nil))
+        .environmentObject(PhotoUploadFormData(filename: "", location: .splatoon))
 }

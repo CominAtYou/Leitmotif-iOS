@@ -5,10 +5,13 @@ struct ContentView: View {
     @EnvironmentObject var topBarStateController: TopBarStateController
     var body: some View {
         ZStack {
-            if (topBarStateController.selectedButton == 1) {
+            if (topBarStateController.selectedButton == 0) {
+                FileUploadView()
+            }
+            else if (topBarStateController.selectedButton == 1) {
                 PhotoUploadView()
             }
-            TopBar(isImageOverlayed: $topBarStateController.isImageOverlayed)
+            TopBarView(isImageOverlayed: $topBarStateController.isImageOverlayed)
         }
         .onAppear {
             let reachabilityManager = NetworkReachabilityManager(host: "skipper.cominatyou.com")
@@ -24,6 +27,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(TopBarStateController(state: .inactive, statusText: "UbuntuNAS | Online", uploadProgress: 0.0, isImageOverlayed: false, selectedButton: 0))
-        .environmentObject(PhotoUploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(TopBarStateController.previewObject(position: 0))
+        .environmentObject(PhotoUploadFormData(filename: "", location: .splatoon))
 }

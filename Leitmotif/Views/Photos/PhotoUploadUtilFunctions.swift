@@ -1,13 +1,13 @@
 import SwiftUI
 
 extension PhotoUploadFormBottomButtons {
-    func startUpload(_ backgroundImageData: PhotosPickerContentTransferrable) async {
+    func startUpload(_ content: PhotosPickerContentTransferrable) async {
         do {
-            try await uploadData(fileName: photoUploadFormData.fileName, file: backgroundImageData.imageData!, location: photoUploadFormData.selectedLocation, mime: backgroundImageData.mimeType!, topBarStateController: topBarStateController)
+            try await uploadData(using: photoUploadFormData, file: content.imageData!, mime: content.mimeType!, topBarStateController: topBarStateController)
             
-            topBarStateController.state = .inactive
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
+                    topBarStateController.state = .inactive
                     topBarStateController.statusText = "Upload Complete!"
                 }
             }
@@ -25,11 +25,11 @@ extension PhotoUploadFormBottomButtons {
             // TODO: something
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             let name = UserDefaults.standard.string(forKey: "lastSeenServerName")!
             withAnimation {
-                topBarStateController.statusText = "\(name) | Online"
-                photoUploadFormData.fileName = ""
+                topBarStateController.statusText = "\(name) – Online"
+                photoUploadFormData.filename = ""
                 photoUploadFormData.selectedImage = nil
             }
         }
@@ -42,16 +42,16 @@ extension PhotoUploadFormBottomButtons {
                     let fileExt = photoUploadFormData.selectedImage!.supportedContentTypes.first!.preferredFilenameExtension!
                     
                     DispatchQueue.main.async {
-                        if (photoUploadFormData.fileName.isEmpty) {
+                        if (photoUploadFormData.filename.isEmpty) {
                             let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
-                            photoUploadFormData.fileName = "\(nameComponent).\(fileExt)"
+                            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
                         }
-                        else if (photoUploadFormData.fileName.contains(".")) {
-                            let nameComponent = photoUploadFormData.fileName.split(separator: ".").first!
-                            photoUploadFormData.fileName = "\(nameComponent).\(fileExt)"
+                        else if (photoUploadFormData.filename.contains(".")) {
+                            let nameComponent = photoUploadFormData.filename.split(separator: ".").first!
+                            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
                         }
                         else {
-                            photoUploadFormData.fileName += ".\(fileExt)"
+                            photoUploadFormData.filename += ".\(fileExt)"
                         }
                     }
                     

@@ -20,5 +20,6 @@ struct PhotoUploadViewBottomForm: View {
 
 #Preview {
     PhotoUploadViewBottomForm(backgroundImageData: .constant(nil))
-        .environmentObject(PhotoUploadFormData(fileName: "", selectedLocation: .splatoon, selectedImage: nil))
+        .environmentObject(PhotoUploadFormData(filename: "", location: .splatoon))
+        .environmentObject(TopBarStateController.previewObject(position: 1))
 }

@@ -22,3 +22,9 @@ class TopBarStateController: ObservableObject {
         self.selectedButton = 0
     }
 }
+
+extension TopBarStateController {
+    static func previewObject(position: Int) -> TopBarStateController {
+        return TopBarStateController(state: .inactive, statusText: "UbuntuNAS – Online", uploadProgress: 0.0, isImageOverlayed: false, selectedButton: position)
+    }
+}

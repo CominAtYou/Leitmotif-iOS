@@ -3,8 +3,8 @@ import Foundation
 import PhotosUI
 
 struct PhotoUploadView: View {
-    @Environment(\.colorScheme) private var colorScheme
-    @StateObject private var photoUploadFormData = PhotoUploadFormData(fileName: "", selectedLocation: .splatoon)
+    // TODO: move this higher up in the view hiearchy (probably to ContentView) so it doesn't get nuked whenever the selected view changes
+    @StateObject private var photoUploadFormData = PhotoUploadFormData(filename: "", location: .splatoon)
     
     @State private var backgroundImageData: PhotosPickerContentTransferrable?
     @State private var isPhotoPickerVisible = false
@@ -19,12 +19,12 @@ struct PhotoUploadView: View {
                     .environmentObject(photoUploadFormData)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(createBackground(geometry), alignment: .center)
+            .background(Background(geometry), alignment: .center)
         }
     }
-
-    @ViewBuilder 
-    func createBackground(_ geometry: GeometryProxy) -> some View {
+    
+    @ViewBuilder
+    func Background(_ geometry: GeometryProxy) -> some View {
         if let backgroundImage = backgroundImageData?.image {
             backgroundImage
                 .resizable()
@@ -39,15 +39,10 @@ struct PhotoUploadView: View {
                 
 #Preview {
     PhotoUploadView()
-        .environmentObject(UploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(UploadFormData(filename: "", location: .splatoon))
         .environmentObject(TopBarStateController(state: .inactive, statusText: "", uploadProgress: 0, isImageOverlayed: false, selectedButton: 1))
 }
 
 class PhotoUploadFormData: UploadFormData {
-    @Published var selectedImage: PhotosPickerItem?
-    
-    override init(fileName: String, selectedLocation: UploadLocation, selectedImage: PhotosPickerItem? = nil) {
-        self.selectedImage = selectedImage
-        super.init(fileName: fileName, selectedLocation: selectedLocation, selectedImage: nil)
-    }
+    @Published var selectedImage: PhotosPickerItem? = nil
 }

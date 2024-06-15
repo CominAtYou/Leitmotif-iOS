@@ -8,7 +8,7 @@ struct UploadFormNameField: View {
     
     var body: some View {
         LabeledContent {
-            TextField("", text: $uploadFormData.fileName)
+            TextField("", text: $uploadFormData.filename)
                 .multilineTextAlignment(.trailing)
                 .font(Font.custom("UrbanistRoman-Medium", size: 16, relativeTo: .body))
                 .foregroundStyle(Color(UIColor.label).opacity(0.4))
@@ -38,5 +38,5 @@ struct UploadFormNameField: View {
 
 #Preview {
     UploadFormNameField(shouldPaddingBeApplied: .constant(false))
-        .environmentObject(UploadFormData(fileName: "", selectedLocation: .splatoon))
+        .environmentObject(UploadFormData(filename: "", location: .splatoon))
 }
