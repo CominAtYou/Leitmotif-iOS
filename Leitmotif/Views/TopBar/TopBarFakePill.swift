@@ -1,12 +1,6 @@
-//
-//  TopBarFakePill.swift
-//  Leitmotif
-//
-//  Created by William Martin on 6/15/24.
-//
-
 import SwiftUI
 
+// Using this as a spacer to help position the actual pill in the top bar view.
 struct TopBarFakePill: View {
     var body: some View {
         VStack(alignment: .leading) {

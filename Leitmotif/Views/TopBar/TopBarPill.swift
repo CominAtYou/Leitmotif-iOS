@@ -10,9 +10,10 @@ import SwiftUI
 struct TopBarPill: View {
     @EnvironmentObject private var topBarStateController: TopBarStateController
     @Environment(\.colorScheme) private var colorScheme
+    @Binding var pillState: TopBarPillState
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 16) {
                 if (topBarStateController.state == .inactive) {
                     Image(systemName: "checkmark.circle")
@@ -37,6 +38,9 @@ struct TopBarPill: View {
                 }
                 Spacer()
             }
+            if pillState == .expanded {
+                TopBarPillOptions()
+            }
         }
         .padding(.horizontal, 24)
         .padding(.vertical, 12)
@@ -51,6 +55,6 @@ struct TopBarPill: View {
 }
 
 #Preview {
-    TopBarPill()
+    TopBarPill(pillState: .constant(.standard))
         .environmentObject(TopBarStateController.previewObject(position: 0))
 }
