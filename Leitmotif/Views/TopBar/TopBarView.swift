@@ -31,8 +31,11 @@ struct TopBarView: View {
                             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                             longPressCompleted = true
                             
-                            withAnimation(.bouncy(duration: 0.5)) {
-                                pillState = .expanded
+                            withAnimation(.bouncy(duration: 0.4)) {
+                                if topBarStateController.state != .indeterminate {
+                                    pillState = .expanded
+                                }
+                                
                                 longPressCompleted = false
                             }
                     } onPressingChanged: { state in
@@ -47,14 +50,7 @@ struct TopBarView: View {
                 .padding(.horizontal, pillState == .expanded ? 12 : 24)
             }
             .padding(.top, 10)
-            Rectangle()
-                .foregroundColor(.clear)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    withAnimation(.bouncy(duration: 0.5)) {
-                        pillState = .standard
-                    }
-                }
+            Spacer()
         }
     }
 }
@@ -77,5 +73,6 @@ struct TopBarView_Previews: PreviewProvider {
     
     static var previews: some View {
         TopBarViewPreviewContainer()
+            .environmentObject(ConfigurationStateController(networkMode: .automatic))
     }
 }

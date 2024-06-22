@@ -15,20 +15,19 @@ struct TopBarPill: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 16) {
-                if (topBarStateController.state == .inactive) {
+                switch topBarStateController.state {
+                case .inactive:
                     Image(systemName: "checkmark.circle")
                         .font(.system(size: 20, weight: .medium))
-                }
-                else if (topBarStateController.state == .indeterminate) {
+                case .indeterminate:
                     ProgressView()
-                }
-                else if (topBarStateController.state == .unavailable) {
+                case .unavailable:
                     Image(systemName: "exclamationmark.circle")
                         .font(.system(size: 20, weight: .medium))
-                }
-                else {
+                default:
                     CircularProgressView(progress: $topBarStateController.uploadProgress)
                 }
+                
                 VStack(alignment: .leading) {
                     Text("Leitmotif")
                         .font(Font.custom("UrbanistRoman-SemiBold", size: 19, relativeTo: .title))
@@ -57,4 +56,5 @@ struct TopBarPill: View {
 #Preview {
     TopBarPill(pillState: .constant(.standard))
         .environmentObject(TopBarStateController.previewObject(position: 0))
+        .environmentObject(ConfigurationStateController(networkMode: .automatic))
 }
