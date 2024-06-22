@@ -40,4 +40,5 @@ struct ContentView: View {
     ContentView()
         .environmentObject(TopBarStateController.previewObject(position: 0))
         .environmentObject(PhotoUploadFormData(filename: "", location: .splatoon))
+        .environmentObject(ConfigurationStateController(networkMode: .automatic))
 }
