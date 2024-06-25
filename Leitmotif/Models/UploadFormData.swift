@@ -1,5 +1,4 @@
 import Foundation
-import _PhotosUI_SwiftUI
 
 class UploadFormData: ObservableObject {
     @Published var filename: String

@@ -25,6 +25,8 @@ extension FileUploadViewBottomButtons {
         else {
             do {
                 let fileData = try Data(contentsOf: fileUploadFormData.selectedFile!)
+                fileUploadFormData.selectedFile!.stopAccessingSecurityScopedResource()
+                
                 try await uploadData(using: fileUploadFormData, file: fileData, mime: mime, topBarStateController: topBarStateController)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
