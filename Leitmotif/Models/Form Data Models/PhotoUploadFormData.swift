@@ -1,8 +1,8 @@
-//
-//  PhotoUploadFormData.swift
-//  Leitmotif
-//
-//  Created by William Martin on 6/23/24.
-//
-
 import Foundation
+import SwiftUI
+import PhotosUI
+
+class PhotoUploadFormData: UploadFormData {
+    @Published var selectedImage: PhotosPickerItem? = nil
+}
+

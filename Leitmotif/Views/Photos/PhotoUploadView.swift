@@ -25,7 +25,7 @@ struct PhotoUploadView: View {
     
     @ViewBuilder
     func Background(_ geometry: GeometryProxy) -> some View {
-        if let backgroundImage = backgroundImageData?.image {
+        if let backgroundImage = backgroundImageData?.backgroundImage {
             backgroundImage
                 .resizable()
                 .scaledToFill()
@@ -34,6 +34,8 @@ struct PhotoUploadView: View {
                 .frame(minWidth: geometry.size.width, maxWidth: geometry.size.width)
                 .ignoresSafeArea(.all)
         }
+        else {
+        }
     }
 }
                 
@@ -41,8 +43,4 @@ struct PhotoUploadView: View {
     PhotoUploadView()
         .environmentObject(UploadFormData(filename: "", location: .splatoon))
         .environmentObject(TopBarStateController(state: .inactive, statusText: "", uploadProgress: 0, isImageOverlayed: false, selectedButton: 1))
-}
-
-class PhotoUploadFormData: UploadFormData {
-    @Published var selectedImage: PhotosPickerItem? = nil
 }

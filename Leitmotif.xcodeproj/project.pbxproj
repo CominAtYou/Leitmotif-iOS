@@ -34,7 +34,10 @@
 		3E69FA052B671EAE00F061A9 /* PingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA042B671EAE00F061A9 /* PingResponse.swift */; };
 		3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */; };
 		3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E860C0C2B3E87F70065DF70 /* LargeButton.swift */; };
+		3E921FDC2C2909D70051EF32 /* FileUploadFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */; };
+		3E921FDE2C290A100051EF32 /* PhotoUploadFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */; };
 		3EA383622B4139AC00530FDE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA383612B4139AC00530FDE /* Alamofire */; };
+		3EA8B61E2C2134C900854393 /* ConfigurationStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8B61D2C2134C900854393 /* ConfigurationStateController.swift */; };
 		3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */; };
 		3EBEA17D2AACDB54005A2995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA17C2AACDB54005A2995 /* ContentView.swift */; };
 		3EBEA17F2AACDB55005A2995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEA17E2AACDB55005A2995 /* Assets.xcassets */; };
@@ -104,6 +107,9 @@
 		3E69FA042B671EAE00F061A9 /* PingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingResponse.swift; sourceTree = "<group>"; };
 		3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarNetworkManager.swift; sourceTree = "<group>"; };
 		3E860C0C2B3E87F70065DF70 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadFormData.swift; sourceTree = "<group>"; };
+		3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadFormData.swift; sourceTree = "<group>"; };
+		3EA8B61D2C2134C900854393 /* ConfigurationStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStateController.swift; sourceTree = "<group>"; };
 		3EBEA1772AACDB54005A2995 /* Leitmotif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leitmotif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBEA17A2AACDB54005A2995 /* LeitmotifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeitmotifApp.swift; sourceTree = "<group>"; };
 		3EBEA17C2AACDB54005A2995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
