@@ -3,7 +3,7 @@ import SwiftUI
 extension PhotoUploadFormBottomButtons {
     func startUpload(_ content: PhotosPickerContentTransferrable) async {
         do {
-            try await uploadData(using: photoUploadFormData, file: content.imageData!, mime: content.mimeType!, topBarStateController: topBarStateController)
+            try await uploadData(using: photoUploadFormData, file: content.imageData ?? content.videoData!, mime: content.mimeType!, topBarStateController: topBarStateController)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
@@ -35,38 +35,68 @@ extension PhotoUploadFormBottomButtons {
         }
     }
     
-    func handleSelectionChange() {
-        if photoUploadFormData.selectedImage != nil {
-            photoUploadFormData.selectedImage!.loadTransferable(type: PhotosPickerContentTransferrable.self) { result in
-                if var resultData = try? result.get() {
-                    let fileExt = photoUploadFormData.selectedImage!.supportedContentTypes.first!.preferredFilenameExtension!
-                    
-                    DispatchQueue.main.async {
-                        if (photoUploadFormData.filename.isEmpty) {
-                            let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
-                            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
-                        }
-                        else if (photoUploadFormData.filename.contains(".")) {
-                            let nameComponent = photoUploadFormData.filename.split(separator: ".").first!
-                            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
-                        }
-                        else {
-                            photoUploadFormData.filename += ".\(fileExt)"
-                        }
-                    }
-                    
-                    resultData.mimeType = photoUploadFormData.selectedImage!.supportedContentTypes.first!.preferredMIMEType
-                    withAnimation {
-                        backgroundImageData = resultData
-                    }
-                    isImageOverlayed = true
-                }
-            }
+    private func setFileName() {
+        guard let fileExt = photoUploadFormData.selectedImage?.supportedContentTypes.first?.preferredFilenameExtension else { return }
+        
+        if (photoUploadFormData.filename.isEmpty) {
+            let nameComponent = UUID().uuidString.split(separator: "-").first!.lowercased()
+            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
+        }
+        else if (photoUploadFormData.filename.contains(".")) {
+            let nameComponent = photoUploadFormData.filename.split(separator: ".").first!
+            photoUploadFormData.filename = "\(nameComponent).\(fileExt)"
         }
         else {
+            photoUploadFormData.filename += ".\(fileExt)"
+        }
+    }
+    
+    func handleSelectionChange() {
+        guard let selectedImage = photoUploadFormData.selectedImage else {
             withAnimation {
                 backgroundImageData = nil
+            }
+            
+            return
+        }
+        
+        selectedImage.loadTransferable(type: PhotosPickerContentTransferrable.self) { result in
+            guard var resultData = try? result.get() else {
+                withAnimation {
+                    backgroundImageData = nil
+                }
+                
                 isImageOverlayed = false
+                return
+            }
+            
+            resultData.mimeType = selectedImage.supportedContentTypes.first!.preferredMIMEType
+            
+            if let videoData = resultData.videoData {
+                Task {
+                    if let videoFrame = await getFrameFromVideo(data: videoData) {
+                        resultData.backgroundImage = Image(uiImage: UIImage(cgImage: videoFrame))
+                        
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                backgroundImageData = resultData
+                            }
+                            
+                            setFileName()
+                            isImageOverlayed = true
+                            topBarStateController.isImageOverlayed = true
+                        }
+                    }
+                }
+            }
+            else {
+                withAnimation {
+                    backgroundImageData = resultData
+                }
+                
+                setFileName()
+                isImageOverlayed = true
+                topBarStateController.isImageOverlayed = true
             }
         }
     }

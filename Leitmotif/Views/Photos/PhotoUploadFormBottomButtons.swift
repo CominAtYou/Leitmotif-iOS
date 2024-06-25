@@ -11,7 +11,7 @@ struct PhotoUploadFormBottomButtons: View {
     var body: some View {
         VStack {
             HStack {
-                PhotosPicker(selection: $photoUploadFormData.selectedImage, matching: .images, photoLibrary: .shared()) {
+                PhotosPicker(selection: $photoUploadFormData.selectedImage, matching: .any(of: [.images, .videos]), photoLibrary: .shared()) {
                     ActionlessLargeButton(text: backgroundImageData != nil ? "Change Photo" : "Select Photo")
                 }
                 .onChange(of: photoUploadFormData.selectedImage, handleSelectionChange)
