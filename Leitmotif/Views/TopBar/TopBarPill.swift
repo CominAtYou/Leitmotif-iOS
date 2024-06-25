@@ -33,6 +33,7 @@ struct TopBarPill: View {
                         .font(Font.custom("UrbanistRoman-SemiBold", size: 19, relativeTo: .title))
                     Text(topBarStateController.statusText)
                         .font(Font.custom("UrbanistRoman-Medium", size: 13, relativeTo: .caption))
+                        .contentTransition(.numericText(value: topBarStateController.uploadProgress))
                         .opacity(0.3)
                 }
                 Spacer()
