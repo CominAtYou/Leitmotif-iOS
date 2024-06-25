@@ -7,7 +7,7 @@ struct UploadForm: View {
     var body: some View {
         VStack {
             VStack {
-                UploadFormNameField(shouldPaddingBeApplied: $shouldPaddingBeApplied)
+                UploadFormTextField(label: "File Name", shouldPaddingBeApplied: $shouldPaddingBeApplied)
                 UploadFormLocationPicker()
             }
             .padding(.vertical, 18)
