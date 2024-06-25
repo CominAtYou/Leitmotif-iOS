@@ -19,7 +19,7 @@ class TopBarStateController: ObservableObject {
         self.statusText = statusText
         self.uploadProgress = uploadProgress
         self.isImageOverlayed = isImageOverlayed
-        self.selectedButton = 0
+        self.selectedButton = selectedButton
     }
 }
 

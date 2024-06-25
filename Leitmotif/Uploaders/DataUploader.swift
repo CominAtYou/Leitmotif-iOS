@@ -37,7 +37,10 @@ func uploadData(using formData: UploadFormData, file: Data, mime: String, topBar
     Task {
         for await progress in request.uploadProgress() {
             DispatchQueue.main.async {
-                topBarStateController.statusText = "Uploading (\(Int(round(progress.fractionCompleted * 100)))%)"
+                withAnimation(.bouncy(duration: 1)) {
+                    topBarStateController.statusText = "Uploading (\(Int(round(progress.fractionCompleted * 100)))%)"
+                }
+                
                 withAnimation {
                     topBarStateController.uploadProgress = progress.fractionCompleted
                 }

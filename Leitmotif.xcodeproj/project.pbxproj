@@ -45,6 +45,7 @@
 		3EBEA18C2AACDFAA005A2995 /* UploadLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */; };
 		3EC03CEA2B4F200000244CC9 /* FontLoadingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC03CE92B4F200000244CC9 /* FontLoadingStoryboard.storyboard */; };
 		3ED3DEA52C1E3A3200582860 /* TopBarNavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3DEA42C1E3A3200582860 /* TopBarNavigationTabs.swift */; };
+		3EE212B12C26B52300443CD3 /* VideoFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE212B02C26B52300443CD3 /* VideoFrames.swift */; };
 		3EE2E6AF2C1A0478008D1DF0 /* UploadFormNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2E6AE2C1A0478008D1DF0 /* UploadFormNameField.swift */; };
 		3EE2E6B22C1A0656008D1DF0 /* UploadFormLocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2E6B12C1A0656008D1DF0 /* UploadFormLocationPicker.swift */; };
 		3EE2E6B42C1A06B9008D1DF0 /* PhotoUploadFormBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2E6B32C1A06B9008D1DF0 /* PhotoUploadFormBottomButtons.swift */; };
@@ -118,6 +119,7 @@
 		3EBEA18B2AACDFAA005A2995 /* UploadLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadLocations.swift; sourceTree = "<group>"; };
 		3EC03CE92B4F200000244CC9 /* FontLoadingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontLoadingStoryboard.storyboard; sourceTree = "<group>"; };
 		3ED3DEA42C1E3A3200582860 /* TopBarNavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarNavigationTabs.swift; sourceTree = "<group>"; };
+		3EE212B02C26B52300443CD3 /* VideoFrames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFrames.swift; sourceTree = "<group>"; };
 		3EE2E6AB2C1A0277008D1DF0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3EE2E6AE2C1A0478008D1DF0 /* UploadFormNameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFormNameField.swift; sourceTree = "<group>"; };
 		3EE2E6B12C1A0656008D1DF0 /* UploadFormLocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFormLocationPicker.swift; sourceTree = "<group>"; };
@@ -204,6 +206,15 @@
 			path = Uploaders;
 			sourceTree = "<group>";
 		};
+		3E921FDA2C2909C40051EF32 /* Form Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */,
+				3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */,
+			);
+			path = "Form Data Models";
+			sourceTree = "<group>";
+		};
 		3EBEA16E2AACDB54005A2995 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +263,7 @@
 		3EBEA1882AACDE3E005A2995 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E921FDA2C2909C40051EF32 /* Form Data Models */,
 				3E6718F12B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift */,
 				3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */,
 				3E48E6632B4FBF4C002E9363 /* Secrets.swift */,
@@ -261,6 +273,7 @@
 				3E69FA042B671EAE00F061A9 /* PingResponse.swift */,
 				3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */,
 				3E68FDB92BB319F600677D37 /* UploadFormData.swift */,
+				3EA8B61D2C2134C900854393 /* ConfigurationStateController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				3E46F81F2C1CA63900032129 /* URLMimeType.swift */,
+				3EE212B02C26B52300443CD3 /* VideoFrames.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -425,6 +439,7 @@
 				3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */,
 				3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */,
 				3EE2E6AF2C1A0478008D1DF0 /* UploadFormNameField.swift in Sources */,
+				3EA8B61E2C2134C900854393 /* ConfigurationStateController.swift in Sources */,
 				3E2627752C1A0FE300AFFC5C /* UploadForm.swift in Sources */,
 				3E52E0212B5044EB006D5973 /* PhotoUploadViewBottomForm.swift in Sources */,
 				3EBEA17B2AACDB54005A2995 /* LeitmotifApp.swift in Sources */,
@@ -440,6 +455,9 @@
 				3EE2E6B22C1A0656008D1DF0 /* UploadFormLocationPicker.swift in Sources */,
 				3EE2E6B42C1A06B9008D1DF0 /* PhotoUploadFormBottomButtons.swift in Sources */,
 				3E6718F22B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift in Sources */,
+				3E921FDE2C290A100051EF32 /* PhotoUploadFormData.swift in Sources */,
+				3E921FDC2C2909D70051EF32 /* FileUploadFormData.swift in Sources */,
+				3EE212B12C26B52300443CD3 /* VideoFrames.swift in Sources */,
 				3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */,
 				3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */,
 				3E04CAAC2C1E375200FEF4F3 /* TopBarPill.swift in Sources */,
@@ -592,6 +610,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Leitmotif/Preview\\ Content Leitmotif/Fonts/Urbanist.ttf";
@@ -603,6 +622,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17;
@@ -627,6 +647,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Leitmotif/Preview\\ Content Leitmotif/Fonts/Urbanist.ttf";
@@ -638,6 +659,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17;

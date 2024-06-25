@@ -32,24 +32,38 @@ extension FileUploadViewBottomButtons {
             }
             
             
-            guard type.starts(with: "image/") else { return }
+            guard type.starts(with: /(video|image)\//) else { return }
             
             guard file.startAccessingSecurityScopedResource() else {
                 NSLog("Can't access the file, aborting.")
                 return
             }
             
-            guard let fileData = try? Data(contentsOf: file) else {
-                NSLog("Couldn't read the file, aborting.")
-                return
-            }
-
-            DispatchQueue.main.async {
-                withAnimation {
-                    fileUploadFormData.backgroundImage = Image(uiImage: UIImage(data: fileData)!)
+            if type.starts(with: "image/") {
+                guard let fileData = try? Data(contentsOf: file) else {
+                    NSLog("Couldn't read the file, aborting.")
+                    return
                 }
                 
-                fileUploadFormData.fileData = fileData
+                DispatchQueue.main.async {
+                    withAnimation {
+                        fileUploadFormData.backgroundImage = Image(uiImage: UIImage(data: fileData)!)
+                    }
+                    
+                    fileUploadFormData.fileData = fileData
+                    topBarStateController.isImageOverlayed = true
+                    
+                    file.stopAccessingSecurityScopedResource()
+                }
+            }
+            
+            if type.starts(with: "video/") {
+                guard let frame = await getFrameFromVideo(videoURL: file) else { return }
+                
+                withAnimation {
+                    fileUploadFormData.backgroundImage = Image(uiImage: UIImage(cgImage: frame))
+                }
+                
                 topBarStateController.isImageOverlayed = true
             }
             
