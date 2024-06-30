@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 
 struct FileUploadView: View {
-    // TODO: move this higher up in the view hiearchy (probably to ContentView) so it doesn't get nuked whenever the selected view changes
+    @EnvironmentObject private var topBarStateController: TopBarStateController
     @StateObject private var fileUploadFormData = FileUploadFormData(filename: "", location: .splatoon)
     var body: some View {
         GeometryReader { geometry in
@@ -12,22 +12,28 @@ struct FileUploadView: View {
                     .environmentObject(fileUploadFormData)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Background(geometry), alignment: .center)
+            .background(
+                fileUploadFormData.backgroundImage?
+                .resizable()
+                .scaledToFill()
+                .blur(radius: 5)
+                .scaleEffect(1.05) // remove white glow from top and bottom of image
+                .frame(minWidth: geometry.size.width, maxWidth: geometry.size.width)
+                .clipped()
+                .ignoresSafeArea(.all),
+                alignment: .center)
+            .onChange(of: topBarStateController.selectedButton) {
+                if topBarStateController.selectedButton == 0 {
+                    withAnimation(.linear(duration: 0.25)) {
+                        topBarStateController.isImageOverlayed = fileUploadFormData.backgroundImage != nil
+                    }
+                }
+            }
         }
-    }
-    
-    @ViewBuilder
-    func Background(_ geometry: GeometryProxy) -> some View {
-        fileUploadFormData.backgroundImage?
-            .resizable()
-            .scaledToFill()
-            .blur(radius: 5)
-            .scaleEffect(1.05) // remove white glow from top and bottom of image
-            .frame(minWidth: geometry.size.width, maxWidth: geometry.size.width)
-            .ignoresSafeArea(.all)
     }
 }
 
 #Preview {
     FileUploadView()
+        .environmentObject(TopBarStateController.previewObject(position: 0))
 }

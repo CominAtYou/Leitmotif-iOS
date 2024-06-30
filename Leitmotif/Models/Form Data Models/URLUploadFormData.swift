@@ -9,3 +9,5 @@ class URLUploadFormData: UploadFormData {
         super.init(filename: filename, location: location)
     }
 }
+
+typealias TwitterUploadFormData = URLUploadFormData

@@ -90,13 +90,15 @@ extension PhotoUploadFormBottomButtons {
                 }
             }
             else {
-                withAnimation {
-                    backgroundImageData = resultData
+                DispatchQueue.main.async {
+                    withAnimation {
+                        backgroundImageData = resultData
+                    }
+                    
+                    setFileName()
+                    isImageOverlayed = true
+                    topBarStateController.isImageOverlayed = true
                 }
-                
-                setFileName()
-                isImageOverlayed = true
-                topBarStateController.isImageOverlayed = true
             }
         }
     }

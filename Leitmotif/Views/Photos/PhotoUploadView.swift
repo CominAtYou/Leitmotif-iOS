@@ -3,7 +3,7 @@ import Foundation
 import PhotosUI
 
 struct PhotoUploadView: View {
-    // TODO: move this higher up in the view hiearchy (probably to ContentView) so it doesn't get nuked whenever the selected view changes
+    @EnvironmentObject private var topBarStateController: TopBarStateController
     @StateObject private var photoUploadFormData = PhotoUploadFormData(filename: "", location: .splatoon)
     
     @State private var backgroundImageData: PhotosPickerContentTransferrable?
@@ -19,22 +19,23 @@ struct PhotoUploadView: View {
                     .environmentObject(photoUploadFormData)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Background(geometry), alignment: .center)
+            .background(
+                backgroundImageData?.backgroundImage?
+                    .resizable()
+                    .scaledToFill()
+                    .blur(radius: 5)
+                    .scaleEffect(1.05) // remove white glow from top and bottom of image
+                    .frame(minWidth: geometry.size.width, maxWidth: geometry.size.width)
+                    .clipped()
+                    .ignoresSafeArea(.all), 
+                alignment: .center)
         }
-    }
-    
-    @ViewBuilder
-    func Background(_ geometry: GeometryProxy) -> some View {
-        if let backgroundImage = backgroundImageData?.backgroundImage {
-            backgroundImage
-                .resizable()
-                .scaledToFill()
-                .blur(radius: 5)
-                .scaleEffect(1.05) // remove white glow from top and bottom of image
-                .frame(minWidth: geometry.size.width, maxWidth: geometry.size.width)
-                .ignoresSafeArea(.all)
-        }
-        else {
+        .onChange(of: topBarStateController.selectedButton) {
+            if topBarStateController.selectedButton == 1 {
+                withAnimation(.linear(duration: 0.25)) {
+                    topBarStateController.isImageOverlayed = backgroundImageData?.backgroundImage != nil
+                }
+            }
         }
     }
 }

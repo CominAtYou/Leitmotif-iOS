@@ -15,15 +15,19 @@
 		3E11C31F2C1B6EDF00014DCE /* FileUploadViewBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11C31E2C1B6EDF00014DCE /* FileUploadViewBottomButtons.swift */; };
 		3E11C3212C1B719B00014DCE /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11C3202C1B719B00014DCE /* FileImporter.swift */; };
 		3E1ADB9E2B3F228400F71BE8 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */; };
+		3E1FC2542C2E3F3F00972E2D /* TwitterMediaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FC2532C2E3F3F00972E2D /* TwitterMediaFetcher.swift */; };
 		3E21A2CB2C1FC3C1000E3C02 /* TopBarPillOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21A2CA2C1FC3C1000E3C02 /* TopBarPillOptions.swift */; };
 		3E2627752C1A0FE300AFFC5C /* UploadForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2627742C1A0FE300AFFC5C /* UploadForm.swift */; };
 		3E2EDAFD2B4F166800467736 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2EDAFC2B4F166800467736 /* TopBarView.swift */; };
 		3E2EDB052B4F1A1100467736 /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EDB042B4F1A1100467736 /* Urbanist.ttf */; };
 		3E35F0342B6844370049FA55 /* DataUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35F0332B6844370049FA55 /* DataUploader.swift */; };
+		3E394F642C2F2ACE001888C8 /* TweetVideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E394F632C2F2ACE001888C8 /* TweetVideoInfo.swift */; };
 		3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */; };
 		3E46F8202C1CA63900032129 /* URLMimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E46F81F2C1CA63900032129 /* URLMimeType.swift */; };
 		3E48E6642B4FBF4C002E9363 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48E6632B4FBF4C002E9363 /* Secrets.swift */; };
 		3E52E0212B5044EB006D5973 /* PhotoUploadViewBottomForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52E0202B5044EB006D5973 /* PhotoUploadViewBottomForm.swift */; };
+		3E5480162C2B728500CD4C99 /* TwitterUploadForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5480152C2B728500CD4C99 /* TwitterUploadForm.swift */; };
+		3E5480182C2B72E300CD4C99 /* URLUploadFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5480172C2B72E300CD4C99 /* URLUploadFormData.swift */; };
 		3E58E0152B3E4FCA00E08167 /* FileUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */; };
 		3E58E0172B3E4FE300E08167 /* PhotoUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */; };
 		3E58E0192B3E4FF500E08167 /* TwitterUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */; };
@@ -34,6 +38,8 @@
 		3E69FA052B671EAE00F061A9 /* PingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA042B671EAE00F061A9 /* PingResponse.swift */; };
 		3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */; };
 		3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E860C0C2B3E87F70065DF70 /* LargeButton.swift */; };
+		3E8E29712C2E9171004CAEDD /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E29702C2E9171004CAEDD /* TokenResponse.swift */; };
+		3E8E29732C2E9EF4004CAEDD /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E29722C2E9EF4004CAEDD /* RequestConstants.swift */; };
 		3E921FDC2C2909D70051EF32 /* FileUploadFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */; };
 		3E921FDE2C290A100051EF32 /* PhotoUploadFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */; };
 		3EA383622B4139AC00530FDE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA383612B4139AC00530FDE /* Alamofire */; };
@@ -52,6 +58,7 @@
 		3EE2E6B62C1A0779008D1DF0 /* PhotoUploadUtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2E6B52C1A0779008D1DF0 /* PhotoUploadUtilFunctions.swift */; };
 		3EEF135A2B7BD2480062D8CE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF13592B7BD2480062D8CE /* ShareViewController.swift */; };
 		3EEF13612B7BD2480062D8CE /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3EEF13572B7BD2480062D8CE /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3EF6CFA22C2B77780036F643 /* TwitterUploadBottomForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6CFA12C2B77780036F643 /* TwitterUploadBottomForm.swift */; };
 		3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF74DED2B41CB1B008D7720 /* UploadError.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,16 +95,20 @@
 		3E11C31E2C1B6EDF00014DCE /* FileUploadViewBottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewBottomButtons.swift; sourceTree = "<group>"; };
 		3E11C3202C1B719B00014DCE /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		3E1ADB9D2B3F228400F71BE8 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
+		3E1FC2532C2E3F3F00972E2D /* TwitterMediaFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMediaFetcher.swift; sourceTree = "<group>"; };
 		3E21A2CA2C1FC3C1000E3C02 /* TopBarPillOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarPillOptions.swift; sourceTree = "<group>"; };
 		3E2627742C1A0FE300AFFC5C /* UploadForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadForm.swift; sourceTree = "<group>"; };
 		3E2EDAFC2B4F166800467736 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		3E2EDB012B4F17E800467736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2EDB042B4F1A1100467736 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		3E35F0332B6844370049FA55 /* DataUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUploader.swift; sourceTree = "<group>"; };
+		3E394F632C2F2ACE001888C8 /* TweetVideoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVideoInfo.swift; sourceTree = "<group>"; };
 		3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeTypes.swift; sourceTree = "<group>"; };
 		3E46F81F2C1CA63900032129 /* URLMimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMimeType.swift; sourceTree = "<group>"; };
 		3E48E6632B4FBF4C002E9363 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3E52E0202B5044EB006D5973 /* PhotoUploadViewBottomForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewBottomForm.swift; sourceTree = "<group>"; };
+		3E5480152C2B728500CD4C99 /* TwitterUploadForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUploadForm.swift; sourceTree = "<group>"; };
+		3E5480172C2B72E300CD4C99 /* URLUploadFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUploadFormData.swift; sourceTree = "<group>"; };
 		3E58E0142B3E4FCA00E08167 /* FileUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadView.swift; sourceTree = "<group>"; };
 		3E58E0162B3E4FE300E08167 /* PhotoUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadView.swift; sourceTree = "<group>"; };
 		3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUploadView.swift; sourceTree = "<group>"; };
@@ -108,6 +119,8 @@
 		3E69FA042B671EAE00F061A9 /* PingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingResponse.swift; sourceTree = "<group>"; };
 		3E69FA062B67202400F061A9 /* TopBarNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarNetworkManager.swift; sourceTree = "<group>"; };
 		3E860C0C2B3E87F70065DF70 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		3E8E29702C2E9171004CAEDD /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		3E8E29722C2E9EF4004CAEDD /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
 		3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadFormData.swift; sourceTree = "<group>"; };
 		3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadFormData.swift; sourceTree = "<group>"; };
 		3EA8B61D2C2134C900854393 /* ConfigurationStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStateController.swift; sourceTree = "<group>"; };
@@ -128,6 +141,7 @@
 		3EEF13572B7BD2480062D8CE /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EEF13592B7BD2480062D8CE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		3EEF135E2B7BD2480062D8CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EF6CFA12C2B77780036F643 /* TwitterUploadBottomForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUploadBottomForm.swift; sourceTree = "<group>"; };
 		3EF74DED2B41CB1B008D7720 /* UploadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,9 +195,21 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3E5480142C2B726E00CD4C99 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */,
+				3E5480152C2B728500CD4C99 /* TwitterUploadForm.swift */,
+				3EF6CFA12C2B77780036F643 /* TwitterUploadBottomForm.swift */,
+				3E1FC2532C2E3F3F00972E2D /* TwitterMediaFetcher.swift */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
 		3E58E0132B3E4FBF00E08167 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E5480142C2B726E00CD4C99 /* Twitter */,
 				3E11C31B2C1B6E8B00014DCE /* Files */,
 				3EE2E6AD2C1A0462008D1DF0 /* Form Components */,
 				3EE2E6AC2C1A040D008D1DF0 /* Photos */,
@@ -191,7 +217,6 @@
 				3E033B8C2B65B6FB0047F868 /* CircularProgressView.swift */,
 				3E860C0C2B3E87F70065DF70 /* LargeButton.swift */,
 				3E04CAAD2C1E38BC00FEF4F3 /* TopBar */,
-				3E58E0182B3E4FF500E08167 /* TwitterUploadView.swift */,
 				3E58E01A2B3E511000E08167 /* URLUploadView.swift */,
 				3E21A2CA2C1FC3C1000E3C02 /* TopBarPillOptions.swift */,
 			);
@@ -206,11 +231,22 @@
 			path = Uploaders;
 			sourceTree = "<group>";
 		};
+		3E8E296F2C2E9164004CAEDD /* Twitter Request Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E8E29702C2E9171004CAEDD /* TokenResponse.swift */,
+				3E8E29722C2E9EF4004CAEDD /* RequestConstants.swift */,
+				3E394F632C2F2ACE001888C8 /* TweetVideoInfo.swift */,
+			);
+			path = "Twitter Request Models";
+			sourceTree = "<group>";
+		};
 		3E921FDA2C2909C40051EF32 /* Form Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				3E921FDB2C2909D70051EF32 /* FileUploadFormData.swift */,
 				3E921FDD2C290A100051EF32 /* PhotoUploadFormData.swift */,
+				3E5480172C2B72E300CD4C99 /* URLUploadFormData.swift */,
 			);
 			path = "Form Data Models";
 			sourceTree = "<group>";
@@ -263,6 +299,7 @@
 		3EBEA1882AACDE3E005A2995 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E8E296F2C2E9164004CAEDD /* Twitter Request Models */,
 				3E921FDA2C2909C40051EF32 /* Form Data Models */,
 				3E6718F12B52F7A300DDE298 /* PhotosPickerContentTransferrable.swift */,
 				3E4074DB2B3FB035003F9B7D /* MimeTypes.swift */,
@@ -438,7 +475,10 @@
 				3E11C3212C1B719B00014DCE /* FileImporter.swift in Sources */,
 				3E4074DC2B3FB035003F9B7D /* MimeTypes.swift in Sources */,
 				3E860C0D2B3E87F70065DF70 /* LargeButton.swift in Sources */,
+				3E394F642C2F2ACE001888C8 /* TweetVideoInfo.swift in Sources */,
 				3EE2E6AF2C1A0478008D1DF0 /* UploadFormTextField.swift in Sources */,
+				3E8E29732C2E9EF4004CAEDD /* RequestConstants.swift in Sources */,
+				3E5480162C2B728500CD4C99 /* TwitterUploadForm.swift in Sources */,
 				3EA8B61E2C2134C900854393 /* ConfigurationStateController.swift in Sources */,
 				3E2627752C1A0FE300AFFC5C /* UploadForm.swift in Sources */,
 				3E52E0212B5044EB006D5973 /* PhotoUploadViewBottomForm.swift in Sources */,
@@ -459,11 +499,15 @@
 				3E921FDC2C2909D70051EF32 /* FileUploadFormData.swift in Sources */,
 				3EE212B12C26B52300443CD3 /* VideoFrames.swift in Sources */,
 				3EF74DEE2B41CB1B008D7720 /* UploadError.swift in Sources */,
+				3EF6CFA22C2B77780036F643 /* TwitterUploadBottomForm.swift in Sources */,
 				3E69FA072B67202400F061A9 /* TopBarNetworkManager.swift in Sources */,
+				3E5480182C2B72E300CD4C99 /* URLUploadFormData.swift in Sources */,
+				3E8E29712C2E9171004CAEDD /* TokenResponse.swift in Sources */,
 				3E04CAAC2C1E375200FEF4F3 /* TopBarPill.swift in Sources */,
 				3E21A2CB2C1FC3C1000E3C02 /* TopBarPillOptions.swift in Sources */,
 				3E58E0152B3E4FCA00E08167 /* FileUploadView.swift in Sources */,
 				3E04CAAA2C1E364000FEF4F3 /* TopBarFakePill.swift in Sources */,
+				3E1FC2542C2E3F3F00972E2D /* TwitterMediaFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

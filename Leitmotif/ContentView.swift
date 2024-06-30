@@ -7,14 +7,18 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                if (topBarStateController.selectedButton == 0) {
-                    FileUploadView()
-                }
-                else if (topBarStateController.selectedButton == 1) {
-                    PhotoUploadView()
-                }
+            TabView(selection: $topBarStateController.selectedButton) {
+                FileUploadView()
+                    .tag(0)
+                PhotoUploadView()
+                    .tag(1)
+                TwitterUploadView()
+                    .tag(2)
+                EmptyView()
+                    .tag(3)
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .ignoresSafeArea(.all)
             .contentShape(Rectangle())
             .onTapGesture {
                 withAnimation(.bouncy(duration: 0.5)) {

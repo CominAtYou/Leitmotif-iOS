@@ -3,11 +3,12 @@ import SwiftUI
 struct UploadForm: View {
     @Binding var shouldPaddingBeApplied: Bool
     @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject var uploadFormData: UploadFormData
     
     var body: some View {
         VStack {
             VStack {
-                UploadFormTextField(label: "File Name", shouldPaddingBeApplied: $shouldPaddingBeApplied)
+                UploadFormTextField(label: "File Name", value: $uploadFormData.filename, shouldPaddingBeApplied: $shouldPaddingBeApplied)
                 UploadFormLocationPicker()
             }
             .padding(.vertical, 18)

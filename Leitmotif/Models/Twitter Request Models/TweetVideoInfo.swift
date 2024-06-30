@@ -1,24 +1,15 @@
 import Foundation
 
 struct TweetVideo: Codable {
-    let videoInfo: VideoInfo
+    let aspectRatio: [Int]
     /// Duration of the video in milliseconds.
     let duration: Int
     let variants: [VideoVariant]
     
     enum CodingKeys: String, CodingKey {
-        case videoInfo = "video_info"
+        case aspectRatio = "aspect_ratio"
         case duration = "duration_millis"
         case variants
-    }
-    
-    
-    struct VideoInfo: Codable {
-        let aspectRatio: [Int]
-        
-        enum CodingKeys: String, CodingKey {
-            case aspectRatio = "aspect_ratio"
-        }
     }
     
     struct VideoVariant: Codable {

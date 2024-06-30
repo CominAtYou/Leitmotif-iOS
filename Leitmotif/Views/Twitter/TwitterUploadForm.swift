@@ -3,13 +3,21 @@ import SwiftUI
 struct TwitterUploadForm: View {
     @Binding var shouldPaddingBeApplied: Bool
     @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var twitterUploadFormData: TwitterUploadFormData
 
     var body: some View {
         VStack {
             VStack {
-                UploadFormTextField(label: "File Name", shouldPaddingBeApplied: $shouldPaddingBeApplied)
+                UploadFormTextField(label: "File Name", value: $twitterUploadFormData.filename, shouldPaddingBeApplied: $shouldPaddingBeApplied)
+                VStack {
+                    UploadFormTextField(label: "Tweet URL", value: $twitterUploadFormData.url, shouldPaddingBeApplied: $shouldPaddingBeApplied)
+                        .textContentType(.URL)
+                        .keyboardType(.URL)
+                }
+                .padding(.top, 8)
                 UploadFormLocationPicker()
             }
+            .environmentObject(twitterUploadFormData as UploadFormData)
             .padding(.vertical, 18)
             .background(colorScheme == .dark ? Color(UIColor.secondarySystemBackground) : .white)
             .clipShape(RoundedRectangle(cornerRadius: 26))
@@ -21,5 +29,5 @@ struct TwitterUploadForm: View {
 
 #Preview {
     TwitterUploadForm(shouldPaddingBeApplied: .constant(false))
-        .environmentObject(URLUploadFormData(filename: "", location: .splatoon, url: ""))
+        .environmentObject(TwitterUploadFormData(filename: "", location: .splatoon, url: ""))
 }

@@ -16,7 +16,9 @@ struct TopBarNavigationTabs: View {
             HStack(spacing: 32) {
                 ForEach(0..<tabNames.count, id: \.self) { i in
                     Button(action: {
-                        topBarStateController.selectedButton = i
+                        withAnimation {
+                            topBarStateController.selectedButton = i
+                        }
                     }) {
                         Text(tabNames[i])
                             .foregroundStyle(Color(UIColor.label))
