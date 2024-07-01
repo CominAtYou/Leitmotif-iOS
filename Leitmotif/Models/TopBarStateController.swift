@@ -8,23 +8,25 @@ enum TopBarState {
 }
 
 class TopBarStateController: ObservableObject {
-    @Published var state: TopBarState
+    @Published var state = TopBarState.inactive
     @Published var statusText: String
-    @Published var uploadProgress: Double
-    @Published var isImageOverlayed: Bool
+    @Published var uploadProgress = 0.0
+    @Published var isImageOverlayed = false
     @Published var selectedButton = 0
+    @Published var pillState = TopBarPillState.standard
     
-    init(state: TopBarState, statusText: String, uploadProgress: Double, isImageOverlayed: Bool, selectedButton: Int) {
+    @Published var dialogTitle = ""
+    @Published var dialogMessage = ""
+    
+    init(state: TopBarState, statusText: String, selectedButton: Int) {
         self.state = state
         self.statusText = statusText
-        self.uploadProgress = uploadProgress
-        self.isImageOverlayed = isImageOverlayed
         self.selectedButton = selectedButton
     }
 }
 
 extension TopBarStateController {
     static func previewObject(position: Int) -> TopBarStateController {
-        return TopBarStateController(state: .inactive, statusText: "UbuntuNAS – Online", uploadProgress: 0.0, isImageOverlayed: false, selectedButton: position)
+        return TopBarStateController(state: .inactive, statusText: "UbuntuNAS – Online", selectedButton: position)
     }
 }

@@ -43,5 +43,5 @@ struct PhotoUploadView: View {
 #Preview {
     PhotoUploadView()
         .environmentObject(UploadFormData(filename: "", location: .splatoon))
-        .environmentObject(TopBarStateController(state: .inactive, statusText: "", uploadProgress: 0, isImageOverlayed: false, selectedButton: 1))
+        .environmentObject(TopBarStateController(state: .inactive, statusText: "", selectedButton: 1))
 }

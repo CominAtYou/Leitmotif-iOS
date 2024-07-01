@@ -19,7 +19,7 @@ struct TopBarView: View {
                         TopBarFakePill()
                         TopBarNavigationTabs(isImageOverlayed: $isImageOverlayed)
                     }
-                    .padding(.horizontal, pillState == .expanded ? 12 : 24)
+                    .padding(.horizontal, pillState == .expandedShowingOptions ? 12 : 24)
                     
                     Divider()
                         .opacity(isImageOverlayed ? 0 : 1)
@@ -28,26 +28,28 @@ struct TopBarView: View {
                 VStack {
                     TopBarPill(pillState: $pillState)
                         .onLongPressGesture(minimumDuration: 0.25) {
+                            guard pillState != .expandedShowingDialog else { return }
+                            
                             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                             longPressCompleted = true
                             
                             withAnimation(.bouncy(duration: 0.4)) {
                                 if topBarStateController.state != .indeterminate {
-                                    pillState = .expanded
+                                    pillState = .expandedShowingOptions
                                 }
                                 
                                 longPressCompleted = false
                             }
                     } onPressingChanged: { state in
                         withAnimation(.bouncy(duration: 0.5)) {
-                            if !longPressCompleted && pillState != .expanded {
+                            if !longPressCompleted && ![.expandedShowingOptions, .expandedShowingDialog].contains(pillState) {
                                 pillState = state ? .expanding : .standard
                             }
                         }
                     }
                     .scaleEffect(pillState == .expanding ? 1.075 : 1)
                 }
-                .padding(.horizontal, pillState == .expanded ? 12 : 24)
+                .padding(.horizontal, [.expandedShowingOptions, .expandedShowingDialog].contains(pillState) ? 12 : 24)
             }
             .padding(.top, 10)
             Spacer()
@@ -58,7 +60,8 @@ struct TopBarView: View {
 enum TopBarPillState {
     case standard
     case expanding
-    case expanded
+    case expandedShowingOptions
+    case expandedShowingDialog
 }
 
 struct TopBarView_Previews: PreviewProvider {

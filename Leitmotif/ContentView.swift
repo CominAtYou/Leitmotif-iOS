@@ -3,7 +3,6 @@ import Alamofire
 
 struct ContentView: View {
     @EnvironmentObject var topBarStateController: TopBarStateController
-    @State private var pillState = TopBarPillState.standard
     
     var body: some View {
         ZStack {
@@ -18,15 +17,17 @@ struct ContentView: View {
                     .tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .ignoresSafeArea(.all)
+            .ignoresSafeArea(.container)
             .contentShape(Rectangle())
             .onTapGesture {
-                withAnimation(.bouncy(duration: 0.5)) {
-                    pillState = .standard
+                if (topBarStateController.pillState == .expandedShowingOptions) {
+                    withAnimation(.bouncy(duration: 0.5)) {
+                        topBarStateController.pillState = .standard
+                    }
                 }
             }
             
-            TopBarView(pillState: $pillState, isImageOverlayed: $topBarStateController.isImageOverlayed)
+            TopBarView(pillState: $topBarStateController.pillState, isImageOverlayed: $topBarStateController.isImageOverlayed)
         }
         .onAppear {
             let reachabilityManager = NetworkReachabilityManager(host: WAN_IP)

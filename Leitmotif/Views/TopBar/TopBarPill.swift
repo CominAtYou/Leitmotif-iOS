@@ -38,8 +38,13 @@ struct TopBarPill: View {
                 }
                 Spacer()
             }
-            if pillState == .expanded {
+            if pillState == .expandedShowingOptions {
                 TopBarPillOptions()
+            }
+            
+            if pillState == .expandedShowingDialog {
+                TopBarPillDialog(pillState: $pillState)
+                    .padding(.bottom, 8)
             }
         }
         .padding(.horizontal, 24)
